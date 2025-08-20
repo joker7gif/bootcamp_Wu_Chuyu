@@ -1,0 +1,6 @@
+numeric_col,category_col,price,date_str,category
+0.0,A,,2025-08-01,Electronics
+,B,,2025-08-02,Furniture
+0.5,A,,,Toys
+0.75,B,,2025-08-04,Clothing
+1.0,C,,2025-08-05,
