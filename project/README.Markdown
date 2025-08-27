@@ -45,13 +45,19 @@ Processed data is stored as Parquet in /data/processed/ for efficiency.
 A sample notebook demonstrates downloading data, saving it using these functions, and reloading it for later stages.
 
 ## Stage 6: Data Preprocessing
-In this stage, raw Tesla stock data was cleaned and prepared for modeling.
-Steps included removing invalid rows, converting columns to numeric types, handling missing values, removing outliers, and normalizing key features.
-Reusable preprocessing functions were stored in src1/cleaning.py.
-The cleaned dataset was saved to /data/processed/TSLA_cleaned.csv for downstream modeling.
+This stage performs data cleaning and preprocessing for TSLA stock data.
+The first row with invalid values is removed, and numeric columns are converted to float.
+Missing values in price columns are filled with medians, and volume outliers are removed.
+Volume is normalized for modeling purposes, and the cleaned dataset is saved to /data/processed/TSLA_cleaned.csv.
 
 ## Stage 7 Outlier Analysis
 This stage implements explicit outlier detection and removal using the IQR method.
 All reusable functions are stored in src1/outliers.py and integrated into the pipeline.
 Data is reloaded from Stage 6 outputs, cleaned for extreme values, and saved again.
 Outlier handling assumptions and potential impacts are documented for future modeling.
+
+## Stage 8: Exploratory Data Analysis
+This stage performs exploratory data analysis (EDA) on the cleaned TSLA stock dataset.
+Price columns (Open, High, Low, Close) are analyzed together, while Volume is analyzed separately.
+Statistical summaries, distributions, boxplots, time series trends, and correlation matrices are generated.
+EDA insights provide guidance for feature engineering and inform preprocessing and modeling decisions.
